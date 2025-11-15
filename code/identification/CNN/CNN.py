@@ -122,11 +122,18 @@ train_step = tf.train.AdamOptimizer(1e-3).minimize(cross_entropy)
 correct_prediction = tf.equal(tf.argmax(h_fc, 1), tf.argmax(label_, 1),name='cnn_pre_Y')
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32),name='cnn_accuracy')
 
-X_train = load_X('./data(118)/train/record')
-X_test = load_X('./data(118)/test/record')
+#X_train = load_X('./data(118)/train/record')
+#X_test = load_X('./data(118)/test/record')
 
-train_label = load_y('./data(118)/train/label.txt')
-test_label = load_y('./data(118)/test/label.txt')
+##train_label = load_y('./data(118)/train/label.txt')
+#test_label = load_y('./data(118)/test/label.txt')
+
+X_train = load_X('/home/ialzouby/Learning/Gait-Recognition-Using-Smartphones/data/Dataset1try/Dataset #1/train/Inertial Signals')
+X_test = load_X('/home/ialzouby/Learning/Gait-Recognition-Using-Smartphones/data/Dataset1try/Dataset #1/test/Inertial Signals')
+
+train_label = load_y('/home/ialzouby/Learning/Gait-Recognition-Using-Smartphones/data/Dataset1try/Dataset #1/train/y_train.txt')
+test_label = load_y('/home/ialzouby/Learning/Gait-Recognition-Using-Smartphones/data/Dataset1try/Dataset #1/test/y_test.txt')
+
 
 saver = tf.train.Saver(max_to_keep=1)
 
